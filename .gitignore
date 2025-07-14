@@ -1,0 +1,14 @@
+# WordPress
+wp-config.php
+.htaccess
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
