@@ -1,0 +1,243 @@
+/*
+Theme Name: Blanky
+Author: miroku
+Author URI: https://profiles.wordpress.org/369work/
+Description: Blanky is a simple and clean WordPress theme designed.Start your site with Blanky.
+Version: 1.0
+Requires at least: 6.6
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: block-patterns, block-styles, one-column, custom-logo, editor-style, featured-images, full-site-editing, translation-ready
+Text Domain: blanky
+Domain Path: /languages
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+:root :where(.wp-block-group) {
+    padding: 0;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+:where(.wp-site-blocks)>*,
+:root :where(.is-layout-constrained)>*,
+:root :where(.is-layout-flow)>* {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.wp-block-post {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 1rem;
+}
+
+:where(.wp-block-group.has-background) {
+    padding: 0;
+}
+
+.wp-block-navigation-item a {
+    text-decoration: none;
+    color: inherit;
+    padding: .5rem 1rem;
+}
+
+.wp-block-post-comments-form h3.comment-reply-title {
+    font-size: 1.5rem;
+    color: #005A9C;
+}
+
+
+
+h2.wp-block-heading:not(.section-title),
+h3.wp-block-heading:not(.section-title),
+.wp-block-post-comments-form h3.comment-reply-title {
+    margin-bottom: 1rem;
+}
+
+h3.wp-block-heading:not(.category-title) {
+    margin-bottom: 1rem;
+}
+
+.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open:hover {
+    color: #00CFFF;
+}
+
+.wp-block-navigation__responsive-container-close svg, .wp-block-navigation__responsive-container-open svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.wp-block-navigation__responsive-container {
+    display: none;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 250px;
+    inset: 0;
+}
+
+
+.wp-block-button__link {
+    transition: background-color 0.3s ease;
+}
+
+.wp-block-button__link:hover {
+    color: #fff;
+    opacity: 0.8;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    border-radius: .5rem;
+}
+
+.wp-block-button:hover {
+    /* 見出しブロックのスタイル名と類似 */
+    background-color: #0ea5e9;
+    color: #fff;
+    opacity: 0.8;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    border-radius: .5rem;
+}
+
+h2.wp-block-post-title {
+    text-align: left;
+    color: #8b5cf6;
+
+}
+
+.wp-block-post-terms {
+    font-size: 0.9rem;
+}
+
+.form-submit {
+    margin: 1rem 0;
+}
+
+button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+
+/***** This Theme Style *******/
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    line-height: 1.6;
+}
+
+.wp-site-blocks {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+main {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 .5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 3rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 4rem;
+    }
+}
+

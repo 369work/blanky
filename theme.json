@@ -1,0 +1,219 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "settings": {
+        "color": {
+            "palette": []
+        },
+        "spacing": {
+            "units": ["px", "em", "rem", "%"],
+            "defaultSpacingSizes": false,
+            "spacingSizes": [
+                {
+                    "name": "0.5rem",
+                    "size": "0.5rem",
+                    "slug": "0.5rem"
+                },
+                {
+                    "name": "1rem",
+                    "size": "1rem",
+                    "slug": "1rem"
+                },
+                {
+                    "name": "1.5rem",
+                    "size": "1.5rem",
+                    "slug": "1.5rem"
+                },
+                {
+                    "name": "2rem",
+                    "size": "2rem",
+                    "slug": "2rem"
+                },
+                {
+                    "name": "3rem",
+                    "size": "3rem",
+                    "slug": "3rem"
+                },
+                {
+                    "name": "4rem",
+                    "size": "4rem",
+                    "slug": "4rem"
+                },
+                {
+                    "name": "5rem",
+                    "size": "clamp(3rem, 4rem + 1vw, 5rem)",
+                    "slug": "5rem"
+                },
+                {
+                    "name": "6rem",
+                    "size": "clamp(4rem, 5rem + 1vw, 6rem)",
+                    "slug": "6rem"
+                },
+                {
+                    "name": "8rem",
+                    "size": "clamp(5rem, 6rem + 1vw, 8rem)",
+                    "slug": "8rem"
+                }
+            ]
+        },
+        "typography": {
+            "defaultFontSizes": false,
+            "dropCap": false,
+            "fluid": {
+                "maxViewportWidth": "1920px",
+                "minViewportWidth": "320px"
+            },
+            "fontFamilies": [
+                {
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+                    "name": "システム",
+                    "slug": "system-font"
+                },
+                {
+                    "fontFamily": "'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif",
+                    "name": "日本語gothic",
+                    "slug": "japanese-sans"
+                },
+                {
+                    "fontFamily": "'Hiragino Mincho ProN', 'Hiragino Serif', 'Noto Serif JP', serif",
+                    "name": "日本語serif",
+                    "slug": "japanese-serif"
+                },
+                {
+                    "fontFamily": "Georgia, 'Times New Roman', Times, serif",
+                    "name": "英字セリフ",
+                    "slug": "serif"
+                }
+            ],
+            "fontSizes": [
+                {
+                    "fluid": false,
+                    "name": "text-xs",
+                    "size": "0.75rem",
+                    "slug": "text-xs"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-sm",
+                    "size": "0.875rem",
+                    "slug": "text-sm"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-base",
+                    "size": "1rem",
+                    "slug": "text-base"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-lg",
+                    "size": "1.125rem",
+                    "slug": "text-lg"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-xl",
+                    "size": "1.25rem",
+                    "slug": "text-xl"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-2xl",
+                    "size": "clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem)",
+                    "slug": "text-2xl"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-3xl",
+                    "size": "clamp(1.5rem, 1.425rem + 0.38vw, 1.875rem)",
+                    "slug": "text-3xl"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-4xl",
+                    "size": "clamp(1.875rem, 1.8rem + 0.38vw, 2.25rem)",
+                    "slug": "text-4xl"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-5xl",
+                    "size": "clamp(2rem, 1.8rem + 1vw, 3rem)",
+                    "slug": "text-5xl"
+                },
+                {
+                    "fluid": false,
+                    "name": "text-6xl",
+                    "size": "clamp(2.5rem, 2.25rem + 1.25vw, 3.75rem)",
+                    "slug": "text-6xl"
+                }
+            ],
+            "lineHeight": true
+        }
+    },
+    "styles": {
+        "spacing": {
+            "blockGap": "0",
+            "padding": {
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0"
+            },
+            "margin": {
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0"
+            }
+        },
+        "typography": {
+            "fontFamily": "japanese-sans",
+            "fontSize": "var(--wp--preset--)",
+            "lineHeight": "1.6"
+        },
+        "elements": {
+            "h1": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--text-6-xl)"
+                }
+            },
+            "h2": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--text-5-xl)"
+                }
+            },
+            "h3": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--text-4-xl)"
+                }
+            },
+            "h4": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--text-3-xl)"
+                }
+            },
+            "h5": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--text-2-xl)"
+                }
+            },
+            "h6": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--text-xl)"
+                }
+            }
+        }
+    },
+    "templateParts": [
+        {
+            "area": "header",
+            "name": "header",
+            "title": "Header"
+        },
+        {
+            "area": "footer",
+            "name": "footer",
+            "title": "Footer"
+        }
+    ]
+}
