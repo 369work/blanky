@@ -4,7 +4,7 @@ Tags: block-patterns, block-styles, one-column, custom-logo, editor-style, featu
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0
+Stable tag: 1.1
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
