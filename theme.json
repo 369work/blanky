@@ -168,7 +168,7 @@
         },
         "typography": {
             "fontFamily": "japanese-sans",
-            "fontSize": "var(--wp--preset--)",
+            "fontSize": "var(--wp--preset--font-size--text-base)",
             "lineHeight": "1.6"
         },
         "elements": {

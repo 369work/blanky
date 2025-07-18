@@ -13,7 +13,7 @@ function get_ga4_measurement_id()
 {
     static $ga_id = null;
     if ($ga_id === null) {
-        $ga_id = get_option('ga4_measurement_id', 'XXXXXXXXXX');
+        $ga_id = get_option('ga4_measurement_id', '');
     }
     return $ga_id;
 }

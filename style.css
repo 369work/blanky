@@ -3,7 +3,7 @@ Theme Name: Blanky
 Author: miroku
 Author URI: https://profiles.wordpress.org/369work/
 Description: Blanky is a simple and clean WordPress theme designed.Start your site with Blanky.
-Version: 1.1
+Version: 1.3
 Requires at least: 6.6
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -184,7 +184,6 @@ body {
 .wp-site-blocks {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     width: 100%;
     margin: 0 auto;
     padding: 0;
