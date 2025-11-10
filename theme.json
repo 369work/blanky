@@ -3,10 +3,25 @@
     "version": 3,
     "settings": {
         "color": {
-            "palette": []
+            "palette": [],
+            "gradients": [
+                {
+                    "slug": "black-to-white",
+                    "gradient": "linear-gradient(180deg, #000000 0%, #ffffff 100%)",
+                    "name": "黒から白"
+                },
+                {
+                    "slug": "white-to-black",
+                    "gradient": "linear-gradient(180deg, #ffffff 0%, #000000 100%)",
+                    "name": "白から黒"
+                }
+            ]
         },
         "spacing": {
-            "units": ["px", "em", "rem", "%"],
+            "padding": true,
+            "margin": true,
+            "blockGap": true,
+            "units": ["px", "em", "rem", "%", "vh", "vw"],
             "defaultSpacingSizes": false,
             "spacingSizes": [
                 {

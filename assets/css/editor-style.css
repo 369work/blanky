@@ -1,0 +1,131 @@
+/*
+ * Editor Styles
+ * Styles for the block editor to match the front-end appearance
+ */
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+/* Images and Media */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Form Elements */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Block Editor Specific Styles */
+.editor-styles-wrapper {
+    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    line-height: 1.6;
+}
+
+/* Block Group Styles */
+.editor-styles-wrapper .wp-block-group {
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation Styles */
+.editor-styles-wrapper .wp-block-navigation-item a {
+    text-decoration: none;
+    color: inherit;
+    padding: .5rem 1rem;
+}
+
+/* Button Styles */
+.editor-styles-wrapper .wp-block-button__link {
+    transition: background-color 0.3s ease;
+}
+
+.editor-styles-wrapper .wp-block-button__link:hover {
+    color: #fff;
+    opacity: 0.8;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+    border-radius: .5rem;
+}
+
+/* Post Title */
+.editor-styles-wrapper h2.wp-block-post-title {
+    text-align: left;
+    color: #8b5cf6;
+}
+
+/* Post Terms */
+.editor-styles-wrapper .wp-block-post-terms {
+    font-size: 0.9rem;
+}
+
+/* Comments Form */
+.editor-styles-wrapper .wp-block-post-comments-form h3.comment-reply-title {
+    font-size: 1.5rem;
+    color: #005A9C;
+}
+
+/* Headings */
+.editor-styles-wrapper h2.wp-block-heading:not(.section-title),
+.editor-styles-wrapper h3.wp-block-heading:not(.section-title),
+.editor-styles-wrapper .wp-block-post-comments-form h3.comment-reply-title {
+    margin-bottom: 1rem;
+}
+
+.editor-styles-wrapper h3.wp-block-heading:not(.category-title) {
+    margin-bottom: 1rem;
+}
+
+/* Container */
+.editor-styles-wrapper .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 .5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .editor-styles-wrapper .container {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .editor-styles-wrapper .container {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .editor-styles-wrapper .container {
+        max-width: 1200px;
+        padding: 0 3rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .editor-styles-wrapper .container {
+        max-width: 1400px;
+        padding: 0 4rem;
+    }
+}

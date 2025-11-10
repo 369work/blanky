@@ -3,7 +3,7 @@ Contributors: miroku
 Tags: block-patterns, block-styles, one-column, custom-logo, editor-style, featured-images, full-site-editing, translation-ready
 Requires at least: 6.6
 Tested up to: 6.8
-Requires PHP: 7.4
+Requires PHP: 8.1
 Stable tag: 1.3
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,6 +35,19 @@ This is a starter theme, which means it's a starting point for your own theme de
 *   **Add Custom CSS:** While most styling should be managed via `theme.json`, you can add any necessary custom CSS to `style.css`.
 
 == Changelog ==
+
+= 1.3 =
+* Updated to WordPress 6.8
+
+= 1.2 =
+* Bugfixes and improvements.
+
+= 1.1.1 =
+* Added support for the new block editor
+
+= 1.1 =
+* Updated admin interface
+* Added support for the new block editor
 
 = 1.0 =
 * Initial release.
