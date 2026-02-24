@@ -2,45 +2,73 @@
 Theme Name: Blanky
 Author: miroku
 Author URI: https://profiles.wordpress.org/369work/
-Description: Blanky is a simple and clean WordPress theme designed. Start your site with Blanky.
-Version: 1.3
+Description: Blanky is a minimal, clean block theme for WordPress. It provides a simple blank canvas with sensible CSS resets, a flexible theme.json, and essential templates — ready to customize as your own.
+Version: 1.4
 Requires at least: 6.6
-Tested up to: 6.8
-Requires PHP: 8.1
+Tested up to: 6.9
+Requires PHP: 7.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: block-patterns, block-styles, one-column, custom-logo, editor-style, featured-images, full-site-editing, translation-ready
+Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column
 Text Domain: blanky
 Domain Path: /languages
 
 This theme, like WordPress, is licensed under the GPL.
 */
 
-*, *::before, *::after {
+/* ============================================================
+   CSS Reset
+   Modern, minimal reset as a foundation.
+   ============================================================ */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 * {
     margin: 0;
-}
-
-body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
     padding: 0;
 }
 
-img, picture, video, canvas, svg {
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100svh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* color / background-color は theme.json styles.color で定義 */
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
 }
 
-input, button, textarea, select {
-    font: inherit
+input,
+button,
+textarea,
+select {
+    font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
 }
 
@@ -48,195 +76,729 @@ p {
     text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-wrap: balance;
 }
 
-#root, #__next {
-    isolation: isolate;
-}
-
-:root :where(.wp-block-group) {
-    padding: 0;
-    margin: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-:where(.wp-site-blocks)>*,
-:root :where(.is-layout-constrained)>*,
-:root :where(.is-layout-flow)>* {
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-.wp-block-post {
-    width: 100%;
-    max-width: 1200px;
-    padding: 2rem 1rem;
-}
-
-:where(.wp-block-group.has-background) {
-    padding: 0;
-}
-
-.wp-block-navigation-item a {
-    text-decoration: none;
-    color: inherit;
-    padding: .5rem 1rem;
-}
-
-.wp-block-post-comments-form h3.comment-reply-title {
-    font-size: 1.5rem;
-    color: #005A9C;
-}
-
-
-
-h2.wp-block-heading:not(.section-title),
-h3.wp-block-heading:not(.section-title),
-.wp-block-post-comments-form h3.comment-reply-title {
-    margin-bottom: 1rem;
-}
-
-h3.wp-block-heading:not(.category-title) {
-    margin-bottom: 1rem;
-}
-
-.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open:hover {
-    color: #00CFFF;
-}
-
-.wp-block-navigation__responsive-container-close svg, .wp-block-navigation__responsive-container-open svg {
-    width: 3rem;
-    height: 3rem;
-}
-
-.wp-block-navigation__responsive-container {
-    display: none;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 250px;
-    inset: 0;
-}
-
-
-.wp-block-button__link {
-    transition: background-color 0.3s ease;
-}
-
-.wp-block-button__link:hover {
-    color: #fff;
-    opacity: 0.8;
-    transform: scale(1.02);
-    transition: all 0.3s ease;
-    border-radius: .5rem;
-}
-
-.wp-block-button:hover {
-    /* 見出しブロックのスタイル名と類似 */
-    background-color: #0ea5e9;
-    color: #fff;
-    opacity: 0.8;
-    transform: scale(1.02);
-    transition: all 0.3s ease;
-    border-radius: .5rem;
-}
-
-h2.wp-block-post-title {
-    text-align: left;
-    color: #8b5cf6;
-
-}
-
-.wp-block-post-terms {
-    font-size: 0.9rem;
-}
-
-.form-submit {
-    margin: 1rem 0;
-}
-
 button {
+    cursor: pointer;
     -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
     touch-action: manipulation;
 }
 
-
-/***** This Theme Style *******/
-html,
-body {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    position: relative;
-    font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-    line-height: 1.6;
-}
+/* ============================================================
+   WordPress Block Theme Foundation
+   ============================================================ */
 
 .wp-site-blocks {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
+    min-height: 100svh;
 }
 
-header {
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
+/*
+ * .wp-site-blocks 直下 (header/main/footer) の margin だけゼロにする。
+ * .is-layout-constrained / .is-layout-flow の子はリセットしない —
+ */
+:where(.wp-site-blocks) > * {
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
-main {
+/* Navigation */
+.wp-block-navigation-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================================
+   Accessibility: Focus styles
+   ============================================================ */
+
+:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+}
+
+a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+button:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible,
+input[type="button"]:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+input:not([type="submit"]):not([type="reset"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 0;
+    border-radius: 2px;
+}
+
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   Language-based font switching
+   ============================================================ */
+
+:lang(ja),
+:lang(ja) body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+}
+
+/* Navigation responsive open/close icons */
+.wp-block-navigation__responsive-container-close svg,
+.wp-block-navigation__responsive-container-open svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* ============================================================
+   Header
+
+   chrome カスタムプロパティ (theme.json settings.custom.chrome)
+   を使用し、スタイルバリエーションで配色を切り替え可能にする。
+   ============================================================ */
+
+.blanky-header {
+    border-bottom: 1px solid #3d4a4a;
+    border-bottom: 1px solid var(--wp--custom--chrome--border);
+    background-color: #2c3333;
+    background-color: var(--wp--custom--chrome--background);
+    color: #d4d0c8;
+    color: var(--wp--custom--chrome--text);
+    text-align: center;
+}
+
+.blanky-header.wp-block-group {
+    padding-top: 2rem;
+    padding-top: var(--wp--preset--spacing--60);
+    padding-bottom: 2rem;
+    padding-bottom: var(--wp--preset--spacing--60);
+    gap: 1.5rem;
+    gap: var(--wp--preset--spacing--40);
+}
+
+/* ヘッダー内サイトタイトル */
+.blanky-header .wp-block-site-title,
+.blanky-header .wp-block-site-title a {
+    color: #7ab0a0;
+    color: var(--wp--custom--chrome--accent);
+    text-decoration: none;
+}
+
+/* ヘッダー内タグライン */
+.blanky-header .wp-block-site-tagline {
+    color: #6b7a7a;
+    color: var(--wp--custom--chrome--muted);
+}
+
+/* ヘッダー内ナビゲーション */
+.blanky-header .wp-block-navigation,
+.blanky-header .wp-block-navigation a {
+    color: #d4d0c8;
+    color: var(--wp--custom--chrome--text);
+}
+
+/* Site icon */
+.blanky-site-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7ab0a0;
+    color: var(--wp--custom--chrome--accent);
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+}
+
+.blanky-site-icon svg {
     width: 100%;
-    padding: 0;
-    margin: 0 auto;
+    height: 100%;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.blanky-footer.wp-block-group {
+    border-top: 1px solid #3d4a4a;
+    border-top: 1px solid var(--wp--custom--chrome--border);
+    background-color: #2c3333;
+    background-color: var(--wp--custom--chrome--background);
+    color: #d4d0c8;
+    color: var(--wp--custom--chrome--text);
+    padding-top: 4rem;
+    padding-top: var(--wp--preset--spacing--70);
+    padding-bottom: 4rem;
+    padding-bottom: var(--wp--preset--spacing--70);
+}
+
+/* コピーライト + サイトタイトル テキスト */
+.blanky-footer-copyright,
+.blanky-footer-copyright .wp-block-site-title,
+.blanky-footer-copyright .wp-block-site-title a,
+.blanky-footer-copyright p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #6b7a7a;
+    color: var(--wp--custom--chrome--muted);
+    text-decoration: none;
+}
+
+/* ソーシャルリンク */
+.blanky-social-links.wp-block-social-links .wp-block-social-link a {
+    color: #6b7a7a;
+    color: var(--wp--custom--chrome--muted);
+    transition: color 0.2s ease;
+}
+
+.blanky-social-links.wp-block-social-links .wp-block-social-link a:hover {
+    color: #7ab0a0;
+    color: var(--wp--custom--chrome--accent);
+}
+
+/* is-style-logos-only のアイコン色を currentColor で統一 */
+.blanky-social-links.wp-block-social-links.is-style-logos-only .wp-block-social-link-anchor svg {
+    fill: currentColor;
+}
+
+/* ============================================================
+   main
+   ============================================================ */
+.blanky-main.wp-block-group {
     flex: 1;
-}
-
-footer {
-    width: 100%;
-    padding: 0;
+    padding: clamp(2rem, 5vw, 5rem) 1.5rem;
     margin: 0 auto;
+    width: 100%;
 }
 
-.container {
+/* ============================================================
+   Hero section
+   ============================================================ */
+
+.blanky-hero {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.blanky-hero-label,
+.blanky-hero-label a {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+    text-decoration: none;
+}
+
+.blanky-hero-divider.wp-block-separator {
+    border-color: #3a6060;
+    border-color: var(--wp--preset--color--primary);
+    border-top-width: 2px;
+    max-width: 4rem;
+    margin-inline: auto;
+    opacity: 1;
+}
+
+/* ============================================================
+   Featured image: fallback placeholder (no thumbnail set)
+   ============================================================ */
+
+.blanky-no-thumbnail {
+    aspect-ratio: 16 / 9;
+    background-color: #f2efea;
+    background-color: var(--wp--preset--color--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.blanky-no-thumbnail .blanky-thumbnail-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.3;
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+}
+
+.blanky-no-thumbnail .blanky-thumbnail-placeholder svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================================
+   Post list: front page & archive
+   ============================================================ */
+
+/* Grayscale + zoom on hover */
+.blanky-monotone {
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
+
+.blanky-monotone img {
+    filter: grayscale(100%);
+    transform: scale(1);
+    transition: filter 0.5s ease-in-out, transform 0.7s ease;
+}
+
+.blanky-article:hover .blanky-monotone img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* Post title hover color */
+.blanky-article .wp-block-post-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blanky-article:hover .wp-block-post-title a {
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+}
+
+.blanky-post-excerpt .wp-block-post-excerpt__excerpt {
+    padding: 0 1rem;
+    color: var(--wp--preset--color--muted);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+/* Read More button */
+.blanky-read-more.wp-block-read-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+    border: 1px solid rgba(58, 96, 96, 0.25);
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.blanky-read-more.wp-block-read-more:hover {
+    background-color: #3a6060;
+    background-color: var(--wp--preset--color--primary);
+    color: #ffffff;
+    color: var(--wp--preset--color--surface);
+    border-color: #3a6060;
+    border-color: var(--wp--preset--color--primary);
+}
+
+/* Article meta: dot separator between date and category */
+.blanky-article-meta {
+    display: flex;
+    align-items: flex-start;
+}
+
+.blanky-article-meta .wp-block-post-terms {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.blanky-article-meta .wp-block-post-date {
+    flex-shrink: 0;
+    white-space: nowrap;
+    color: var(--wp--preset--color--muted);
+    min-width: max-content; 
+}
+
+.blanky-article-meta .wp-block-post-terms::before {
+    content: '';
+    display: block;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-color: rgba(58, 96, 96, 0.3);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   Post list: index (text-only list)
+   ============================================================ */
+
+.blanky-list-item .wp-block-post-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blanky-list-item:hover .wp-block-post-title a {
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+}
+
+.blanky-list-excerpt .wp-block-post-excerpt__excerpt {
+    color: var(--wp--preset--color--muted);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+/* Query pagination spacing */
+.wp-block-query-pagination {
+    margin-top: 3rem;
+    padding: 3rem 0;
+    gap: 1rem;
+}
+
+.wp-block-query-pagination .wp-block-query-pagination-numbers .page-numbers {
+    margin-left: 1rem;
+}
+
+/* ============================================================
+   Single post
+   ============================================================ */
+
+.blanky-single-article.wp-block-group {
     width: 100%;
     margin: 0 auto;
-    padding: 0 .5rem;
+    max-width: var(--wp--style--global--wide-size);
 }
 
-@media screen and (min-width: 768px) {
-    .container {
-        padding: 0 1rem;
-    }
+/* Category badge */
+.blanky-category-badge.wp-block-post-terms a {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(58, 96, 96, 0.08);
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    border-radius: 0.125rem;
 }
 
-@media screen and (min-width: 1024px) {
-    .container {
-        padding: 0 2rem;
-    }
+/* Post body: serif font */
+.blanky-post-content p,
+.blanky-post-content li,
+.blanky-post-content blockquote {
+    font-family: var(--wp--preset--font-family--serif);
+    font-size: 1.125rem;
+    line-height: 1.8;
 }
 
-@media screen and (min-width: 1280px) {
-    .container {
-        max-width: 1200px;
-        padding: 0 3rem;
-    }
+/* Pullquote / blockquote styling */
+.blanky-post-content .wp-block-pullquote,
+.blanky-post-content .wp-block-quote {
+    border-color: #e8e4de;
+    border-color: var(--wp--preset--color--border);
+    font-family: var(--wp--preset--font-family--serif);
+    font-style: italic;
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
 }
 
-@media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1400px;
-        padding: 0 4rem;
-    }
+.blanky-post-content.wp-block-post-content .wp-block-paragraph {
+    max-width: var(--wp--style--global--wide-size);
 }
 
+/* Post navigation */
+.blanky-post-nav.wp-block-post-navigation-link a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.blanky-post-nav.wp-block-post-navigation-link .wp-block-post-navigation-link__label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #6b7280;
+    color: var(--wp--preset--color--muted);
+    transition: color 0.2s ease;
+}
+
+.blanky-post-nav.wp-block-post-navigation-link a:hover .wp-block-post-navigation-link__label {
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+}
+
+.blanky-post-nav.wp-block-post-navigation-link .wp-block-post-navigation-link__arrow {
+    display: none;
+}
+
+
+.wp-block-separator {
+    border-color: #3a6060;
+    border-color: var(--wp--preset--color--primary);
+    border-top-width: 2px;
+    margin-inline: auto;
+    opacity: 1;
+    margin: 3rem 0;
+}
+
+.blanky-more-posts.wp-block-query {
+    padding: 2rem 0;
+}
+
+.blanky-more-post.wp-block-group {
+    border: 1px solid var(--wp--preset--color--border);
+    border-radius: .5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.blanky-more-post.wp-block-group .wp-block-post-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    min-height: calc(1.4 * 2em); /* line-height × 2行 */
+}
+
+.blanky-more-post.wp-block-group .wp-block-post-title a {
+    display: block;
+}
+
+.blanky-more-post.wp-block-group .wp-block-post-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    line-height: 1.4;
+    min-height: calc(1.4 * 3em); /* line-height × 2行 */
+}
+
+.wp-block-post-author {
+    border: 1px solid var(--wp--preset--color--border);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+
+/* ============================================================
+   Comments
+   ============================================================ */
+
+.blanky-comments {
+    margin-top: 3rem;
+    margin-top: var(--wp--preset--spacing--60);
+}
+
+/* Comment list: spacing between items */
+.blanky-comment-list {
+    list-style: none;
+}
+
+.blanky-comment {
+    padding-bottom: 1.5rem;
+    padding-bottom: var(--wp--preset--spacing--40);
+    margin-bottom: 1.5rem;
+    margin-bottom: var(--wp--preset--spacing--40);
+}
+
+/* Avatar */
+.blanky-comment-avatar {
+    flex-shrink: 0;
+}
+
+.blanky-comment-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Author name link */
+.blanky-comment .wp-block-comment-author-name a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.blanky-comment .wp-block-comment-author-name a:hover {
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+}
+
+/* Comment content */
+.blanky-comment .wp-block-comment-content p {
+    line-height: 1.7;
+}
+
+/* Reply / Edit actions */
+.blanky-comment-actions a {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    color: var(--wp--preset--color--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.blanky-comment-actions a:hover {
+    color: #3a6060;
+    color: var(--wp--preset--color--primary);
+}
+
+/* Nested replies: indent */
+.wp-block-comment-template .wp-block-comment-template {
+    margin-left: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid #e8e4de;
+    border-left: 2px solid var(--wp--preset--color--border);
+}
+
+/* ============================================================
+   Comment form
+   ============================================================ */
+
+.blanky-comment-form {
+    margin-top: 3rem;
+    margin-top: var(--wp--preset--spacing--60);
+    padding-top: 3rem;
+    padding-top: var(--wp--preset--spacing--60);
+    border-top: 1px solid #e8e4de;
+    border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.blanky-comment-form .comment-reply-title {
+    font-size: 1.5rem;
+    font-size: var(--wp--preset--font-size--2xl);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Form fields */
+.blanky-comment-form .comment-form label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    color: var(--wp--preset--color--muted);
+    margin-bottom: 0.375rem;
+}
+
+.blanky-comment-form .comment-form input[type="text"],
+.blanky-comment-form .comment-form input[type="email"],
+.blanky-comment-form .comment-form input[type="url"],
+.blanky-comment-form .comment-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e8e4de;
+    border-color: var(--wp--preset--color--border);
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    background-color: var(--wp--preset--color--white);
+    font-size: 0.875rem;
+    font-size: var(--wp--preset--font-size--sm);
+    color: #2c3333;
+    color: var(--wp--preset--color--foreground);
+    transition: border-color 0.2s ease;
+    line-height: 1.6;
+}
+
+.blanky-comment-form .comment-form input[type="text"]:focus,
+.blanky-comment-form .comment-form input[type="email"]:focus,
+.blanky-comment-form .comment-form input[type="url"]:focus,
+.blanky-comment-form .comment-form textarea:focus {
+    border-color: #3a6060;
+    border-color: var(--wp--preset--color--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(58, 96, 96, 0.12);
+}
+
+.blanky-comment-form .comment-form textarea {
+    min-height: 10rem;
+    resize: vertical;
+}
+
+.blanky-comment-form .comment-form p {
+    margin-bottom: 1.25rem;
+}
+
+/* Submit button */
+.blanky-comment-form .comment-form .form-submit .submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: #3a6060;
+    background-color: var(--wp--preset--color--primary);
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blanky-comment-form .comment-form .form-submit .submit:hover {
+    background-color: #2d4d4d;
+    background-color: var(--wp--preset--color--secondary);
+}
+
+/* Cookie consent checkbox */
+.blanky-comment-form .comment-form-cookies-consent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blanky-comment-form .comment-form-cookies-consent label {
+    display: inline;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #6b7280;
+    color: var(--wp--preset--color--muted);
+    margin-bottom: 0;
+}

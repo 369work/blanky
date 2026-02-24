@@ -1,14 +1,17 @@
 <?php
 /**
- * Title: Query Loop
- * Slug: blanky/query-loop
+ * Title: Search Results
+ * Slug: blanky/search-results
  * Categories: blanky_patterns
+ * Inserter: no
  *
  * @package blanky
- * @since 1.0
+ * @since 1.4
  */
 ?>
-<!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[]},"layout":{"type":"constrained"}} -->
+<!-- wp:query-title {"type":"search","textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"fontSize":"5xl"} /-->
+
+<!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"relevance","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"type":"constrained"}} -->
 <div class="wp-block-query">
 
     <!-- wp:post-template {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
@@ -33,9 +36,15 @@
     <!-- /wp:post-template -->
 
     <!-- wp:query-no-results -->
-    <!-- wp:paragraph -->
-    <p><?php esc_html_e( 'Sorry, we could not find anything. Try searching with different keywords.', 'blanky' ); ?></p>
-    <!-- /wp:paragraph -->
+    <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group">
+        <!-- wp:paragraph {"textAlign":"center"} -->
+        <p class="has-text-align-center"><?php esc_html_e( 'No results found. Please try a different search term.', 'blanky' ); ?></p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:search {"label":"<?php echo esc_attr__( 'Search', 'blanky' ); ?>","showLabel":false,"buttonText":"<?php echo esc_attr__( 'Search', 'blanky' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /-->
+    </div>
+    <!-- /wp:group -->
     <!-- /wp:query-no-results -->
 
     <!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|70"}}}} -->

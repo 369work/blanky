@@ -1,0 +1,76 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "title": "Warm Parchment",
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "slug": "primary",
+                    "color": "#3a6060",
+                    "name": "Primary"
+                },
+                {
+                    "slug": "secondary",
+                    "color": "#2d4d4d",
+                    "name": "Secondary"
+                },
+                {
+                    "slug": "accent",
+                    "color": "#4a7a7a",
+                    "name": "Accent"
+                },
+                {
+                    "slug": "highlight",
+                    "color": "#d4a574",
+                    "name": "Highlight"
+                },
+                {
+                    "slug": "foreground",
+                    "color": "#2c3333",
+                    "name": "Foreground"
+                },
+                {
+                    "slug": "background",
+                    "color": "#faf8f4",
+                    "name": "Background"
+                },
+                {
+                    "slug": "surface",
+                    "color": "#ece8e0",
+                    "name": "Surface"
+                },
+                {
+                    "slug": "white",
+                    "color": "#ffffff",
+                    "name": "White"
+                },
+                {
+                    "slug": "muted",
+                    "color": "#6b7280",
+                    "name": "Muted"
+                },
+                {
+                    "slug": "border",
+                    "color": "#ddd6c9",
+                    "name": "Border"
+                }
+            ]
+        },
+        "custom": {
+            "chrome": {
+                "background": "#f0ece4",
+                "text": "#2c3333",
+                "accent": "#3a6060",
+                "muted": "#8a8070",
+                "border": "#ddd6c9"
+            }
+        }
+    },
+    "styles": {
+        "color": {
+            "text": "var(--wp--preset--color--foreground)",
+            "background": "var(--wp--preset--color--background)"
+        }
+    }
+}
