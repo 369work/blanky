@@ -1,10 +1,10 @@
 === Blanky ===
 Contributors: miroku
-Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column
+Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column, woocommerce
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.4
+Stable tag: 1.5
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -51,6 +51,9 @@ Blanky uses the WordPress standard numeric spacing slugs:
 
 == Changelog ==
 
+= 1.5 =
+* Added WooCommerce support
+
 = 1.4 =
 * Added search results template
 * Added home (blog posts) template
@@ -82,9 +85,10 @@ This theme uses system fonts (no external font files bundled).
 = Images =
 
 Screenshot image:
-* Created by the theme author using AI image generation
-* License: GNU General Public License v3 or later, same as the theme
-* Copyright: 2025 369work
+* Photo by Anna Nekrashevich
+* Source: https://www.pexels.com/photo/8534238/
+* License: CC0 (Pexels License)
+* Copyright: Anna Nekrashevich
 
 == Copyright and License ==
 
