@@ -57,28 +57,29 @@ function blanky_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'blanky_enqueue_scripts' );
 
 /**
- * アイキャッチ未設定時のフォールバック プレースホルダーを挿入する。
+ * Insert a fallback placeholder when no featured image is set.
  *
- * WordPress の core/post-featured-image ブロックはアイキャッチが
- * 設定されていない場合に空文字列を返すため、CSS の :not(:has(img)) では
- * 対応できない。render_block フィルターで代替 HTML を挿入する。
+ * WordPress core/post-featured-image block returns an empty string
+ * if no featured image is set,
+ * so CSS :not(:has(img)) cannot handle it. Use the render_block filter
+ * to insert alternative HTML.
  *
- * @param string $block_content レンダリング済み HTML。
- * @param array  $parsed_block  パース済みブロック情報。
+ * @param string $block_content Rendered HTML.
+ * @param array  $parsed_block  Parsed block information.
  * @return string
  */
 function blanky_featured_image_fallback( $block_content, $parsed_block ) {
-	// 対象ブロック以外はスキップ
+	// Skip blocks other than the target
 	if ( 'core/post-featured-image' !== $parsed_block['blockName'] ) {
 		return $block_content;
 	}
 
-	// アイキャッチがある場合はそのまま返す
+	// If there is an eye-catcher, return it as is
 	if ( ! empty( $block_content ) ) {
 		return $block_content;
 	}
 
-	// blanky-monotone など既存クラスを引き継ぐ
+	// blanky-monotone
 	$extra_class = '';
 	if ( ! empty( $parsed_block['attrs']['className'] ) ) {
 		$extra_class = ' ' . esc_attr( $parsed_block['attrs']['className'] );
@@ -86,7 +87,7 @@ function blanky_featured_image_fallback( $block_content, $parsed_block ) {
 
 	$placeholder_label = esc_attr__( 'No featured image', 'blanky' );
 
-	// 画像アイコン SVG（アクセシビリティ: aria-hidden）
+	// Image Icon SVG (Accessibility: aria-hidden)
 	$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"'
 		. ' stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"'
 		. ' aria-hidden="true" focusable="false">'
