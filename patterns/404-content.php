@@ -11,7 +11,7 @@
 $label       = esc_attr__( 'Search', 'blanky' );
 $button_text = esc_attr__( 'Search', 'blanky' );
 ?>
-
+ 
 <!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading"><?php esc_html_e( 'Page Not Found', 'blanky' ); ?></h1>
 <!-- /wp:heading -->
