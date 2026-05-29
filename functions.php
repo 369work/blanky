@@ -6,55 +6,58 @@
  * @since 1.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-define( 'BLANKY_VERSION', wp_get_theme()->get( 'Version' ) );
+define('BLANKY_VERSION', wp_get_theme()->get('Version'));
 
 /**
  * Theme setup
  */
-function blanky_theme_setup() {
-	load_theme_textdomain( 'blanky', get_template_directory() . '/languages' );
+function blanky_theme_setup()
+{
+	load_theme_textdomain('blanky', get_template_directory() . '/languages');
 
-	add_theme_support( 'wp-block-styles' );
-	add_theme_support( 'editor-styles' );
-	add_editor_style( 'assets/css/editor-style.css' );
-	add_theme_support( 'automatic-feed-links' );
-	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
-	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'title-tag' );
-	add_theme_support( 'custom-logo' );
+	add_theme_support('wp-block-styles');
+	add_theme_support('editor-styles');
+	add_editor_style('assets/css/editor-style.css');
+	add_theme_support('automatic-feed-links');
+	add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script'));
+	add_theme_support('post-thumbnails');
+	add_theme_support('title-tag');
+	add_theme_support('custom-logo');
 
 	// WooCommerce
-	add_theme_support( 'woocommerce' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
+	add_theme_support('woocommerce');
+	add_theme_support('wc-product-gallery-zoom');
+	add_theme_support('wc-product-gallery-lightbox');
+	add_theme_support('wc-product-gallery-slider');
 }
-add_action( 'after_setup_theme', 'blanky_theme_setup' );
+add_action('after_setup_theme', 'blanky_theme_setup');
 
 /**
  * Register block pattern categories
  */
-function blanky_register_block_patterns() {
+function blanky_register_block_patterns()
+{
 	register_block_pattern_category(
 		'blanky_patterns',
 		array(
-			'label'       => __( 'Blanky Patterns', 'blanky' ),
-			'description' => __( 'Patterns provided by the Blanky theme.', 'blanky' ),
+			'label'       => __('Blanky Patterns', 'blanky'),
+			'description' => __('Patterns provided by the Blanky theme.', 'blanky'),
 			'icon'        => 'layout',
 		)
 	);
 }
-add_action( 'init', 'blanky_register_block_patterns' );
+add_action('init', 'blanky_register_block_patterns');
 
 /**
  * Enqueue theme styles
  */
-function blanky_enqueue_scripts() {
-	wp_enqueue_style( 'blanky-style', get_stylesheet_uri(), array(), BLANKY_VERSION );
+function blanky_enqueue_scripts()
+{
+	wp_enqueue_style('blanky-style', get_stylesheet_uri(), array(), BLANKY_VERSION);
 }
-add_action( 'wp_enqueue_scripts', 'blanky_enqueue_scripts' );
+add_action('wp_enqueue_scripts', 'blanky_enqueue_scripts');
 
 /**
  * Insert a fallback placeholder when no featured image is set.
@@ -68,24 +71,25 @@ add_action( 'wp_enqueue_scripts', 'blanky_enqueue_scripts' );
  * @param array  $parsed_block  Parsed block information.
  * @return string
  */
-function blanky_featured_image_fallback( $block_content, $parsed_block ) {
+function blanky_featured_image_fallback($block_content, $parsed_block)
+{
 	// Skip blocks other than the target
-	if ( 'core/post-featured-image' !== $parsed_block['blockName'] ) {
+	if ('core/post-featured-image' !== $parsed_block['blockName']) {
 		return $block_content;
 	}
 
 	// If there is an eye-catcher, return it as is
-	if ( ! empty( $block_content ) ) {
+	if (! empty($block_content)) {
 		return $block_content;
 	}
 
 	// blanky-monotone
 	$extra_class = '';
-	if ( ! empty( $parsed_block['attrs']['className'] ) ) {
-		$extra_class = ' ' . esc_attr( $parsed_block['attrs']['className'] );
+	if (! empty($parsed_block['attrs']['className'])) {
+		$extra_class = ' ' . esc_attr($parsed_block['attrs']['className']);
 	}
 
-	$placeholder_label = esc_attr__( 'No featured image', 'blanky' );
+	$placeholder_label = esc_attr__('No featured image', 'blanky');
 
 	// Image Icon SVG (Accessibility: aria-hidden)
 	$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"'
@@ -98,76 +102,52 @@ function blanky_featured_image_fallback( $block_content, $parsed_block ) {
 
 	return sprintf(
 		'<figure class="wp-block-post-featured-image blanky-no-thumbnail%1$s" aria-label="%2$s">'
-		. '<div class="blanky-thumbnail-placeholder" aria-hidden="true">%3$s</div>'
-		. '</figure>',
+			. '<div class="blanky-thumbnail-placeholder" aria-hidden="true">%3$s</div>'
+			. '</figure>',
 		$extra_class,
 		$placeholder_label,
 		$svg
 	);
 }
-add_filter( 'render_block', 'blanky_featured_image_fallback', 10, 2 );
+add_filter('render_block', 'blanky_featured_image_fallback', 10, 2);
 
 /**
  * Add a Blanky info page under Appearance.
  */
-function blanky_add_theme_info_page() {
+function blanky_add_theme_info_page()
+{
 	add_theme_page(
-		__( 'About Blanky', 'blanky' ),
-		__( 'About Blanky', 'blanky' ),
+		__('About Blanky', 'blanky'),
+		__('About Blanky', 'blanky'),
 		'manage_options',
 		'blanky-theme-link',
 		'blanky_render_theme_info_page'
 	);
 }
-add_action( 'admin_menu', 'blanky_add_theme_info_page' );
+add_action('admin_menu', 'blanky_add_theme_info_page');
 
 /**
  * Render the Blanky info page.
  */
-function blanky_render_theme_info_page() {
-	if ( ! current_user_can( 'manage_options' ) ) {
+function blanky_render_theme_info_page()
+{
+	if (! current_user_can('manage_options')) {
 		return;
 	}
 
 	$theme_url = 'https://blanky.369theme.com/';
 
 	$features = array(
-		array( 'icon' => '◻', 'text' => __( 'CSS reset based on modern best practices', 'blanky' ) ),
-		array( 'icon' => '◻', 'text' => __( 'theme.json v3 — spacing scale, fluid typography, base color palette', 'blanky' ) ),
-		array( 'icon' => '◻', 'text' => __( 'Essential templates: index, front-page, home, single, page, archive, search, 404', 'blanky' ) ),
-		array( 'icon' => '◻', 'text' => __( 'Header and footer template parts', 'blanky' ) ),
-		array( 'icon' => '◻', 'text' => __( 'Block patterns for common page sections', 'blanky' ) ),
-		array( 'icon' => '◻', 'text' => __( 'WooCommerce support', 'blanky' ) ),
-		array( 'icon' => '◻', 'text' => __( 'Translation-ready (POT file included)', 'blanky' ) ),
+		array('icon' => '◻', 'text' => __('CSS reset based on modern best practices', 'blanky')),
+		array('icon' => '◻', 'text' => __('theme.json v3 — spacing scale, fluid typography, base color palette', 'blanky')),
+		array('icon' => '◻', 'text' => __('Essential templates: index, front-page, home, single, page, archive, search, 404', 'blanky')),
+		array('icon' => '◻', 'text' => __('Header and footer template parts', 'blanky')),
+		array('icon' => '◻', 'text' => __('Block patterns for common page sections', 'blanky')),
+		array('icon' => '◻', 'text' => __('WooCommerce support', 'blanky')),
+		array('icon' => '◻', 'text' => __('Translation-ready (POT file included)', 'blanky')),
 	);
 
-	$child_themes = array(
-		array(
-			'name'    => 'Blanky Studio',
-			'tagline' => __( 'Monochrome portfolio for creators & photographers', 'blanky' ),
-			'items'   => array(
-				__( 'Portfolio / project archive layout', 'blanky' ),
-				__( 'Custom post type "Works" ready', 'blanky' ),
-				__( 'Smooth CSS transitions & hover effects', 'blanky' ),
-				__( 'Hero section with full-height cover image', 'blanky' ),
-				__( 'About, Contact, and project navigation patterns', 'blanky' ),
-				__( 'Dark mode support', 'blanky' ),
-			),
-		),
-		array(
-			'name'    => 'Blanky Nordic',
-			'tagline' => __( 'Nordic magazine aesthetic with amber gold accents', 'blanky' ),
-			'items'   => array(
-				__( 'Mosaic grid front page', 'blanky' ),
-				__( 'Amber gold (#D4AF37) accent color palette', 'blanky' ),
-				__( 'Full-height hero with latest post', 'blanky' ),
-				__( '3-column archive card grid', 'blanky' ),
-				__( 'Related posts & sticky header patterns', 'blanky' ),
-				__( 'Mega menu navigation', 'blanky' ),
-			),
-		),
-	);
-	?>
+?>
 	<style>
 		#blanky-about {
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -183,13 +163,15 @@ function blanky_render_theme_info_page() {
 			position: relative;
 			overflow: hidden;
 		}
+
 		#blanky-about .bk-hero::after {
 			content: "";
 			position: absolute;
 			inset: 0;
-			background: radial-gradient(ellipse at 90% 0%, rgba(255,255,255,.04) 0%, transparent 60%);
+			background: radial-gradient(ellipse at 90% 0%, rgba(255, 255, 255, .04) 0%, transparent 60%);
 			pointer-events: none;
 		}
+
 		#blanky-about .bk-hero-badge {
 			display: inline-block;
 			font-size: .65em;
@@ -202,6 +184,7 @@ function blanky_render_theme_info_page() {
 			padding: .25em .9em;
 			margin-bottom: 1.2em;
 		}
+
 		#blanky-about .bk-hero h1 {
 			color: #fff;
 			font-size: 2.6em;
@@ -212,6 +195,7 @@ function blanky_render_theme_info_page() {
 			padding: 0;
 			border: none;
 		}
+
 		#blanky-about .bk-hero p {
 			color: #9aa0a6;
 			font-size: 1em;
@@ -232,6 +216,7 @@ function blanky_render_theme_info_page() {
 			align-items: center;
 			gap: .6em;
 		}
+
 		#blanky-about .bk-label::after {
 			content: "";
 			flex: 1;
@@ -248,6 +233,7 @@ function blanky_render_theme_info_page() {
 			padding: 0;
 			list-style: none;
 		}
+
 		#blanky-about .bk-badges li {
 			display: inline-flex;
 			align-items: center;
@@ -260,6 +246,7 @@ function blanky_render_theme_info_page() {
 			color: #3c434a;
 			line-height: 1;
 		}
+
 		#blanky-about .bk-badges li::before {
 			content: "✓";
 			color: #2271b1;
@@ -274,28 +261,33 @@ function blanky_render_theme_info_page() {
 			gap: 1.5em;
 			margin-bottom: 3.5em;
 		}
+
 		#blanky-about .bk-card {
 			background: #fff;
 			border: 1px solid #e5e5e5;
 			border-radius: 14px;
 			overflow: hidden;
 		}
+
 		#blanky-about .bk-card-head {
 			background: #0e0e0e;
 			padding: 1.6em 1.8em 1.4em;
 		}
+
 		#blanky-about .bk-card-head-top {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			margin-bottom: .55em;
 		}
+
 		#blanky-about .bk-card-name {
 			color: #fff;
 			font-size: 1.05em;
 			font-weight: 600;
 			letter-spacing: .01em;
 		}
+
 		#blanky-about .bk-premium-badge {
 			font-size: .6em;
 			font-weight: 700;
@@ -306,15 +298,18 @@ function blanky_render_theme_info_page() {
 			border-radius: 20px;
 			padding: .3em .85em;
 		}
+
 		#blanky-about .bk-card-tagline {
 			color: #6b7280;
 			font-size: .8em;
 			line-height: 1.5;
 			margin: 0;
 		}
+
 		#blanky-about .bk-card-body {
 			padding: 1.6em 1.8em;
 		}
+
 		#blanky-about .bk-card-items {
 			margin: 0;
 			padding: 0;
@@ -323,6 +318,7 @@ function blanky_render_theme_info_page() {
 			flex-direction: column;
 			gap: .55em;
 		}
+
 		#blanky-about .bk-card-items li {
 			display: flex;
 			align-items: center;
@@ -330,6 +326,7 @@ function blanky_render_theme_info_page() {
 			font-size: .875em;
 			color: #50575e;
 		}
+
 		#blanky-about .bk-card-items li::before {
 			content: "";
 			width: 5px;
@@ -349,6 +346,7 @@ function blanky_render_theme_info_page() {
 			justify-content: space-between;
 			gap: 2.5em;
 		}
+
 		#blanky-about .bk-cta-text p.bk-cta-eyebrow {
 			font-size: .68em;
 			font-weight: 700;
@@ -357,6 +355,7 @@ function blanky_render_theme_info_page() {
 			color: #5a6370;
 			margin: 0 0 .4em;
 		}
+
 		#blanky-about .bk-cta-text h3 {
 			color: #fff;
 			font-size: 1.2em;
@@ -364,12 +363,14 @@ function blanky_render_theme_info_page() {
 			margin: 0 0 .5em;
 			letter-spacing: -.01em;
 		}
+
 		#blanky-about .bk-cta-text p.bk-cta-desc {
 			color: #7a8490;
 			font-size: .88em;
 			line-height: 1.7;
 			margin: 0;
 		}
+
 		#blanky-about .bk-cta-btn {
 			display: inline-block;
 			background: #fff;
@@ -385,64 +386,123 @@ function blanky_render_theme_info_page() {
 			border: none;
 			transition: opacity .15s;
 		}
-		#blanky-about .bk-cta-btn:hover { opacity: .85; }
+
+		#blanky-about .bk-cta-btn:hover {
+			opacity: .85;
+		}
 	</style>
 
 	<div class="wrap" id="blanky-about" style="max-width:820px;">
 
 		<!-- Hero -->
 		<div class="bk-hero">
-			<div class="bk-hero-badge"><?php esc_html_e( 'Lightweight Block Theme', 'blanky' ); ?></div>
+			<div class="bk-hero-badge"><?php esc_html_e('Lightweight Block Theme', 'blanky'); ?></div>
 			<h1>Blanky</h1>
-			<p><?php esc_html_e( 'A lightweight, minimal block theme built on the idea of "blank." No unnecessary styles, no bloat — just a clean, empty canvas with sensible defaults. Start from nothing and build exactly what you need.', 'blanky' ); ?></p>
+			<p><?php esc_html_e('A lightweight, minimal block theme built on the idea of "blank." No unnecessary styles, no bloat — just a clean, empty canvas with sensible defaults. Start from nothing and build exactly what you need.', 'blanky'); ?></p>
 		</div>
 
 		<!-- Features -->
-		<p class="bk-label"><?php esc_html_e( 'What you get', 'blanky' ); ?></p>
+		<p class="bk-label"><?php esc_html_e('What you get', 'blanky'); ?></p>
 		<ul class="bk-badges">
-			<?php foreach ( $features as $f ) : ?>
-				<li><?php echo esc_html( $f['text'] ); ?></li>
+			<?php foreach ($features as $f) : ?>
+				<li><?php echo esc_html($f['text']); ?></li>
 			<?php endforeach; ?>
 		</ul>
 
-		<!-- Child themes -->
-		<p class="bk-label"><?php esc_html_e( 'Premium Child Themes', 'blanky' ); ?></p>
+		<!-- Premium themes -->
+		<p class="bk-label"><?php esc_html_e('Premium Themes', 'blanky'); ?></p>
+		<p style="color: #50575e; font-size: 0.9em; margin: -1em 0 2em 0;">
+			<?php esc_html_e('Available at Official Website.', 'blanky'); ?>
+		</p>
 		<div class="bk-cards">
-			<?php foreach ( $child_themes as $ct ) : ?>
-				<div class="bk-card">
-					<div class="bk-card-head">
-						<div class="bk-card-head-top">
-							<span class="bk-card-name"><?php echo esc_html( $ct['name'] ); ?></span>
-							<span class="bk-premium-badge">Premium</span>
-						</div>
-						<p class="bk-card-tagline"><?php echo esc_html( $ct['tagline'] ); ?></p>
+			<!-- Blanky Nordic -->
+			<div class="bk-card">
+				<div class="bk-card-head">
+					<div class="bk-card-head-top">
+						<div class="bk-card-name">Blanky Nordic</div>
+						<div class="bk-premium-badge"><?php esc_html_e('Premium', 'blanky'); ?></div>
 					</div>
-					<div class="bk-card-body">
-						<ul class="bk-card-items">
-							<?php foreach ( $ct['items'] as $item ) : ?>
-								<li><?php echo esc_html( $item ); ?></li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
+					<p class="bk-card-tagline"><?php esc_html_e('Minimalist Scandinavian design with clean lines', 'blanky'); ?></p>
 				</div>
-			<?php endforeach; ?>
+				<div class="bk-card-body">
+					<ul class="bk-card-items">
+						<li><?php esc_html_e('Nordic-inspired color palette', 'blanky'); ?></li>
+						<li><?php esc_html_e('Elegant typography system', 'blanky'); ?></li>
+						<li><?php esc_html_e('Perfect for lifestyle & design blogs', 'blanky'); ?></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Blanky Studio -->
+			<div class="bk-card">
+				<div class="bk-card-head">
+					<div class="bk-card-head-top">
+						<div class="bk-card-name">Blanky Studio</div>
+						<div class="bk-premium-badge"><?php esc_html_e('Premium', 'blanky'); ?></div>
+					</div>
+					<p class="bk-card-tagline"><?php esc_html_e('Portfolio-focused theme for creative professionals', 'blanky'); ?></p>
+				</div>
+				<div class="bk-card-body">
+					<ul class="bk-card-items">
+						<li><?php esc_html_e('Gallery & portfolio layouts', 'blanky'); ?></li>
+						<li><?php esc_html_e('Project showcase patterns', 'blanky'); ?></li>
+						<li><?php esc_html_e('Ideal for designers & photographers', 'blanky'); ?></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Blanky Work -->
+			<div class="bk-card">
+				<div class="bk-card-head">
+					<div class="bk-card-head-top">
+						<div class="bk-card-name">Blanky Work</div>
+						<div class="bk-premium-badge"><?php esc_html_e('Premium', 'blanky'); ?></div>
+					</div>
+					<p class="bk-card-tagline"><?php esc_html_e('Professional business theme with modern layouts', 'blanky'); ?></p>
+				</div>
+				<div class="bk-card-body">
+					<ul class="bk-card-items">
+						<li><?php esc_html_e('Corporate design patterns', 'blanky'); ?></li>
+						<li><?php esc_html_e('Team & service sections', 'blanky'); ?></li>
+						<li><?php esc_html_e('Perfect for agencies & startups', 'blanky'); ?></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Blanky Link -->
+			<div class="bk-card">
+				<div class="bk-card-head">
+					<div class="bk-card-head-top">
+						<div class="bk-card-name">Blanky Link</div>
+						<div class="bk-premium-badge"><?php esc_html_e('Premium', 'blanky'); ?></div>
+					</div>
+					<p class="bk-card-tagline"><?php esc_html_e('Link-in-bio style theme for social media creators', 'blanky'); ?></p>
+				</div>
+				<div class="bk-card-body">
+					<ul class="bk-card-items">
+						<li><?php esc_html_e('Single-page link collection', 'blanky'); ?></li>
+						<li><?php esc_html_e('Social media integration', 'blanky'); ?></li>
+						<li><?php esc_html_e('Great for influencers & creators', 'blanky'); ?></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 		<!-- CTA -->
 		<div class="bk-cta">
 			<div class="bk-cta-text">
-				<p class="bk-cta-eyebrow"><?php esc_html_e( 'Official Website', 'blanky' ); ?></p>
+				<p class="bk-cta-eyebrow"><?php esc_html_e('Official Website', 'blanky'); ?></p>
 				<h3>blanky.369theme.com</h3>
-				<p class="bk-cta-desc"><?php esc_html_e( 'Documentation, demo sites, support, and updates are all available on the official website.', 'blanky' ); ?></p>
+				<p class="bk-cta-desc"><?php esc_html_e('Documentation, demo sites, support, and updates are all available on the official website.', 'blanky'); ?></p>
 			</div>
 			<a class="bk-cta-btn"
-				href="<?php echo esc_url( $theme_url ); ?>"
+				href="<?php echo esc_url($theme_url); ?>"
 				target="_blank"
 				rel="noopener noreferrer">
-				<?php esc_html_e( 'Visit Website', 'blanky' ); ?>
+				<?php esc_html_e('Visit Website', 'blanky'); ?>
 			</a>
 		</div>
 
 	</div>
-	<?php
+<?php
 }

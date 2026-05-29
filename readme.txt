@@ -2,9 +2,9 @@
 Contributors: miroku
 Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column, woocommerce
 Requires at least: 6.6
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.7
+Stable tag: 1.9
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -50,6 +50,13 @@ Blanky uses the WordPress standard numeric spacing slugs:
 | 80   | clamp(4–6rem) |
 
 == Changelog ==
+
+= 1.9 =
+* Tag fix
+
+= 1.8 =
+* WordPress 7.0 対応
+* 管理画面でのスタイルシートの不具合修正
 
 = 1.7 =
 * Style fix

@@ -177,6 +177,26 @@ button {
 }
 
 /* ============================================================
+   Site layout: footer を最下部に固定
+   ============================================================ */
+
+.editor-styles-wrapper .wp-site-blocks {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+}
+
+/* ============================================================
+   Main
+   ============================================================ */
+
+.editor-styles-wrapper .blanky-main.wp-block-group {
+    flex: 1;
+    padding-top: clamp(2rem, 5vw, 5rem);
+    padding-bottom: clamp(2rem, 5vw, 5rem);
+}
+
+/* ============================================================
    Hero section
    ============================================================ */
 
