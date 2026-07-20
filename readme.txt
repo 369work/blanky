@@ -4,7 +4,7 @@ Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variat
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.9
+Stable tag: 2.0
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -51,12 +51,15 @@ Blanky uses the WordPress standard numeric spacing slugs:
 
 == Changelog ==
 
+= 2.0 =
+* theme.json bug fixed
+
 = 1.9 =
 * Tag fix
 
 = 1.8 =
 * WordPress 7.0 対応
-* 管理画面でのスタイルシートの不具合修正
+* Fixed stylesheet issues on the admin screen.
 
 = 1.7 =
 * Style fix

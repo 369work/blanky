@@ -8,7 +8,9 @@
  * @package blanky
  * @since 1.0
  */
+
 ?>
+
 <!-- wp:group {"className":"blanky-footer","layout":{"type":"constrained"}} -->
 <div class="wp-block-group blanky-footer">
 
@@ -19,7 +21,7 @@
 		<div class="wp-block-group blanky-footer-copyright">
 
 			<!-- wp:paragraph {"fontSize":"xs"} -->
-			<p class="has-xs-font-size">&copy; <?php echo gmdate( 'Y' ); ?></p>
+			<p class="has-xs-font-size">&copy; <?php echo esc_html( gmdate( 'Y-m-d' ) ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:site-title {"level":0,"isLink":false,"fontSize":"xs"} /-->

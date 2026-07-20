@@ -151,26 +151,31 @@
             ],
             "fontSizes": [
                 {
+                    "fluid": false,
                     "name": "Extra Small",
                     "size": "0.75rem",
                     "slug": "xs"
                 },
                 {
+                    "fluid": false,
                     "name": "Small",
                     "size": "0.875rem",
                     "slug": "sm"
                 },
                 {
+                    "fluid": false,
                     "name": "Base",
                     "size": "1rem",
                     "slug": "base"
                 },
                 {
+                    "fluid": false,
                     "name": "Large",
                     "size": "1.125rem",
                     "slug": "lg"
                 },
                 {
+                    "fluid": false,
                     "name": "Extra Large",
                     "size": "1.25rem",
                     "slug": "xl"
@@ -178,27 +183,27 @@
                 {
                     "name": "2X-Large",
                     "size": "clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem)",
-                    "slug": "2xl"
+                    "slug": "2-xl"
                 },
                 {
                     "name": "3X-Large",
                     "size": "clamp(1.5rem, 1.425rem + 0.38vw, 1.875rem)",
-                    "slug": "3xl"
+                    "slug": "3-xl"
                 },
                 {
                     "name": "4X-Large",
                     "size": "clamp(1.875rem, 1.8rem + 0.38vw, 2.25rem)",
-                    "slug": "4xl"
+                    "slug": "4-xl"
                 },
                 {
                     "name": "5X-Large",
                     "size": "clamp(2rem, 1.8rem + 1vw, 3rem)",
-                    "slug": "5xl"
+                    "slug": "5-xl"
                 },
                 {
                     "name": "6X-Large",
                     "size": "clamp(2.5rem, 2.25rem + 1.25vw, 3.75rem)",
-                    "slug": "6xl"
+                    "slug": "6-xl"
                 }
             ],
             "lineHeight": true
@@ -209,9 +214,9 @@
             "blockGap": "0",
             "padding": {
                 "top": "0",
-                "right": "var(--wp--preset--spacing--40)",
+                "right": "var:preset|spacing|40",
                 "bottom": "0",
-                "left": "var(--wp--preset--spacing--40)"
+                "left": "var:preset|spacing|40"
             },
             "margin": {
                 "top": "0",
@@ -221,21 +226,21 @@
             }
         },
         "color": {
-            "text": "var(--wp--preset--color--foreground)",
-            "background": "var(--wp--preset--color--background)"
+            "text": "var:preset|color|foreground",
+            "background": "var:preset|color|background"
         },
         "typography": {
-            "fontFamily": "var(--wp--preset--font-family--system-sans)",
-            "fontSize": "var(--wp--preset--font-size--base)",
+            "fontFamily": "var:preset|font-family|system-sans",
+            "fontSize": "var:preset|font-size|base",
             "lineHeight": "1.6"
         },
         "elements": {
-            "h1": { "typography": { "fontSize": "var(--wp--preset--font-size--6xl)" } },
-            "h2": { "typography": { "fontSize": "var(--wp--preset--font-size--5xl)" } },
-            "h3": { "typography": { "fontSize": "var(--wp--preset--font-size--4xl)" } },
-            "h4": { "typography": { "fontSize": "var(--wp--preset--font-size--3xl)" } },
-            "h5": { "typography": { "fontSize": "var(--wp--preset--font-size--2xl)" } },
-            "h6": { "typography": { "fontSize": "var(--wp--preset--font-size--xl)" } },
+            "h1": { "typography": { "fontSize": "var:preset|font-size|6-xl" } },
+            "h2": { "typography": { "fontSize": "var:preset|font-size|5-xl" } },
+            "h3": { "typography": { "fontSize": "var:preset|font-size|4-xl" } },
+            "h4": { "typography": { "fontSize": "var:preset|font-size|3-xl" } },
+            "h5": { "typography": { "fontSize": "var:preset|font-size|2-xl" } },
+            "h6": { "typography": { "fontSize": "var:preset|font-size|xl" } },
             "link": {
                 "typography": {
                     "textDecoration": "underline"

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: blanky\n"
-"POT-Creation-Date: 2026-02-20 05:05+0900\n"
-"PO-Revision-Date: 2026-02-20 05:11+0900\n"
+"POT-Creation-Date: 2026-07-19 11:24+0900\n"
+"PO-Revision-Date: 2026-07-19 11:31+0900\n"
 "Last-Translator: 369work\n"
 "Language-Team: 369work\n"
 "Language: ja\n"
@@ -11,22 +11,174 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html__;esc_attr_e;esc_attr__;_x;_n\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html__;esc_attr_e;esc_attr__;_x;"
+"_n\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
 
-#: functions.php:37
+#: functions.php:43
 msgid "Blanky Patterns"
 msgstr "Blanky Patterns"
 
-#: functions.php:38
+#: functions.php:44
 msgid "Patterns provided by the Blanky theme."
 msgstr "Blanky テーマによって提供されるパターン。"
 
-#: functions.php:85
+#: functions.php:88
 msgid "No featured image"
 msgstr "アイキャッチ画像なし"
 
-#: patterns/404-content.php:13 patterns/search-results.php:42
+#: functions.php:115 functions.php:116
+msgid "About Blanky"
+msgstr "Blankyについて"
+
+#: functions.php:137
+msgid "CSS reset based on modern best practices"
+msgstr "現代のベストプラクティスに基づいたCSSリセット"
+
+#: functions.php:141
+msgid "theme.json v3 — spacing scale, fluid typography, base color palette"
+msgstr ""
+"theme.json v3 — スペーシングスケール、流体タイポグラフィ、基本カラーパレット"
+
+#: functions.php:145
+msgid ""
+"Essential templates: index, front-page, home, single, page, archive, search, "
+"404"
+msgstr ""
+"必須テンプレート：index、front-page、home、single、page、archive、search、404"
+
+#: functions.php:149
+msgid "Header and footer template parts"
+msgstr "ヘッダーとフッターのテンプレートパーツ"
+
+#: functions.php:153
+msgid "Block patterns for common page sections"
+msgstr "一般的なページセクション向けのブロックパターン"
+
+#: functions.php:157
+msgid "WooCommerce support"
+msgstr "WooCommerce support"
+
+#: functions.php:161
+msgid "Translation-ready (POT file included)"
+msgstr "Translation-ready (POT file included)"
+
+#: functions.php:414
+msgid "Lightweight Block Theme"
+msgstr "軽量なブロックテーマ"
+
+#: functions.php:416
+msgid ""
+"A lightweight, minimal block theme built on the idea of \"blank.\" No "
+"unnecessary styles, no bloat — just a clean, empty canvas with sensible "
+"defaults. Start from nothing and build exactly what you need."
+msgstr ""
+"「空白（blank）」というコンセプトに基づいた、軽量かつミニマルなブロックテーマ"
+"です。不要なスタイルや余計な要素は一切排除し、適切なデフォルト設定を備えた、"
+"クリーンで真っさらなキャンバスのような構成になっています。何もない状態からス"
+"タートし、必要なものだけを自由に作り上げることができます。"
+
+#: functions.php:421
+msgid "What you get"
+msgstr "含まれるもの"
+
+#: functions.php:429
+msgid "Premium Themes"
+msgstr "プレミアムテーマ"
+
+#: functions.php:431
+msgid "Available at Official Website."
+msgstr "公式サイトで入手可能です。"
+
+#: functions.php:439 functions.php:458 functions.php:477 functions.php:496
+msgid "Premium"
+msgstr "プレミアム"
+
+#: functions.php:442
+msgid "Minimalist Scandinavian design with clean lines"
+msgstr "すっきりとしたラインが特徴の、ミニマルな北欧デザイン"
+
+#: functions.php:446
+msgid "Nordic-inspired color palette"
+msgstr "北欧風のカラーパレット"
+
+#: functions.php:447
+msgid "Elegant typography system"
+msgstr "洗練されたタイポグラフィ・システム"
+
+#: functions.php:448
+msgid "Perfect for lifestyle & design blogs"
+msgstr "ライフスタイルやデザインのブログに最適"
+
+#: functions.php:461
+msgid "Portfolio-focused theme for creative professionals"
+msgstr "クリエイティブ・プロフェッショナル向け、ポートフォリオ重視のテーマ"
+
+#: functions.php:465
+msgid "Gallery & portfolio layouts"
+msgstr "ギャラリーとポートフォリオのレイアウト"
+
+#: functions.php:466
+msgid "Project showcase patterns"
+msgstr "プロジェクト紹介のパターン"
+
+#: functions.php:467
+msgid "Ideal for designers & photographers"
+msgstr "デザイナーや写真家に最適"
+
+#: functions.php:480
+msgid "Professional business theme with modern layouts"
+msgstr "モダンなレイアウトを採用した、プロフェッショナルなビジネス向けテーマ"
+
+#: functions.php:484
+msgid "Corporate design patterns"
+msgstr "企業向けデザインパターン"
+
+#: functions.php:485
+msgid "Team & service sections"
+msgstr "チーム・サービス紹介セクション"
+
+#: functions.php:486
+msgid "Perfect for agencies & startups"
+msgstr "エージェンシーやスタートアップに最適"
+
+#: functions.php:499
+msgid "Link-in-bio style theme for social media creators"
+msgstr ""
+"ソーシャルメディアクリエイター向けの「リンク・イン・バイオ（Link-in-bio）」型"
+"テーマ"
+
+#: functions.php:503
+msgid "Single-page link collection"
+msgstr "1ページにまとめたリンク集"
+
+#: functions.php:504
+msgid "Social media integration"
+msgstr "ソーシャルメディア連携"
+
+#: functions.php:505
+msgid "Great for influencers & creators"
+msgstr "インフルエンサーやクリエイターに最適"
+
+#: functions.php:514
+msgid "Official Website"
+msgstr "公式サイト"
+
+#: functions.php:517
+msgid ""
+"Documentation, demo sites, support, and updates are all available on the "
+"official website."
+msgstr ""
+"ドキュメント、デモサイト、サポート、およびアップデートは、すべて公式サイトで"
+"ご利用いただけます。"
+
+#: functions.php:521
+msgid "Visit Website"
+msgstr "ウェブサイトにアクセスする"
+
+#: patterns/404-content.php:11 patterns/404-content.php:12
+#: patterns/search-results.php:48
 msgid "Search"
 msgstr "検索"
 
@@ -38,34 +190,37 @@ msgstr "お探しのページが見つかりません"
 msgid "Sorry, but the page you were looking for could not be found."
 msgstr "お探しのページは見つかりませんでした。"
 
-#: patterns/archive-query-loop.php:47 patterns/query-loop.php:37
-msgid "Sorry, we could not find anything. Try searching with different keywords."
-msgstr "申し訳ございませんが、何も見つかりませんでした。別のキーワードで検索してみてください。"
+#: patterns/archive-query-loop.php:49 patterns/query-loop.php:39
+msgid ""
+"Sorry, we could not find anything. Try searching with different keywords."
+msgstr ""
+"申し訳ございませんが、何も見つかりませんでした。別のキーワードで検索してみて"
+"ください。"
 
-#: patterns/comments.php:14
+#: patterns/comments.php:17
 msgid "Comments"
 msgstr "コメント"
 
-#: patterns/footer.php:28
+#: patterns/footer.php:30
 msgid "All rights reserved."
 msgstr "All rights reserved."
 
-#: patterns/front-page-query.php:47
+#: patterns/front-page-query.php:49
 msgid "No posts found. Check back soon!"
 msgstr "投稿が見つかりませんでした。しばらくしてから再度ご確認ください。"
 
-#: patterns/more-posts.php:15
+#: patterns/more-posts.php:17
 msgid "More Posts"
 msgstr "その他の投稿"
 
-#: patterns/post-single.php:51
+#: patterns/post-single.php:59
 msgid "Previous Article"
 msgstr "前の記事"
 
-#: patterns/post-single.php:52
+#: patterns/post-single.php:60
 msgid "Next Article"
 msgstr "次の記事"
 
-#: patterns/search-results.php:42
+#: patterns/search-results.php:45
 msgid "No results found. Please try a different search term."
 msgstr "検索結果が見つかりません。別の検索語句をお試しください。"

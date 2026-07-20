@@ -8,7 +8,9 @@
  * @package blanky
  * @since 1.0
  */
+
 ?>
+
 <!-- wp:group {"className":"blanky-header","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|60"},"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group blanky-header">
 

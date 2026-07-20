@@ -11,7 +11,7 @@
 $label       = esc_attr__( 'Search', 'blanky' );
 $button_text = esc_attr__( 'Search', 'blanky' );
 ?>
- 
+
 <!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading"><?php esc_html_e( 'Page Not Found', 'blanky' ); ?></h1>
 <!-- /wp:heading -->
@@ -20,4 +20,4 @@ $button_text = esc_attr__( 'Search', 'blanky' );
 <p><?php esc_html_e( 'Sorry, but the page you were looking for could not be found.', 'blanky' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:search {"label":"<?php echo $label; ?>","showLabel":false,"buttonText":"<?php echo $button_text; ?>"} /-->
+<!-- wp:search {"label":"<?php echo esc_attr( $label ); ?>","showLabel":false,"buttonText":"<?php echo esc_attr( $button_text ); ?>"} /-->
