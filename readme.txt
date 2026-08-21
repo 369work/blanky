@@ -1,10 +1,10 @@
 === Blanky ===
 Contributors: miroku
-Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column, woocommerce
+Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column, e-commerce
 Requires at least: 6.6
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0
+Stable tag: 2.1
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -50,6 +50,11 @@ Blanky uses the WordPress standard numeric spacing slugs:
 | 80   | clamp(4–6rem) |
 
 == Changelog ==
+
+= 2.1 =
+* Compatible with WordPress 7.1
+* Featured images now display in full color by default; the monochrome effect is applied on hover instead
+* More Posts: card heights now align across the grid, and excerpts are clamped to 5 lines with an ellipsis
 
 = 2.0 =
 * theme.json bug fixed

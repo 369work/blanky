@@ -4,9 +4,9 @@ Theme URI: https://blanky.369theme.com/
 Author: miroku
 Author URI: https://profiles.wordpress.org/369work/
 Description: Blanky is a minimal, clean block theme for WordPress. It provides a simple blank canvas with sensible CSS resets, a flexible theme.json, and essential templates — ready to customize as your own.
-Version: 2.0
+Version: 2.1
 Requires at least: 6.6
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -365,13 +365,13 @@ input[type="radio"]:focus-visible {
 }
 
 .blanky-monotone img {
-    filter: grayscale(100%);
+    filter: grayscale(0%);
     transform: scale(1);
     transition: filter 0.5s ease-in-out, transform 0.7s ease;
 }
 
 .blanky-article:hover .blanky-monotone img {
-    filter: grayscale(0%);
+    filter: grayscale(100%);
     transform: scale(1.02);
 }
 
@@ -586,6 +586,7 @@ input[type="radio"]:focus-visible {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    height: 100%; /* グリッドの各セルいっぱいに広げて高さを揃える */
 }
 
 .blanky-more-post.wp-block-group .wp-block-post-title {
@@ -605,11 +606,13 @@ input[type="radio"]:focus-visible {
 
 .blanky-more-post.wp-block-group .wp-block-post-excerpt {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1.4;
-    min-height: calc(1.4 * 3em); /* line-height × 2行 */
+    height: calc(1.4 * 5em); /* line-height × 5行 */
 }
 
 .wp-block-post-author {
