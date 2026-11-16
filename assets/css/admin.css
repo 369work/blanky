@@ -1,0 +1,29 @@
+/**
+ * About Blanky page (Appearance > About Blanky).
+ *
+ * Loaded on that page only. The page uses the core admin classes
+ * (.card, .button), so this file only adjusts the width and spacing.
+ *
+ * @package blanky
+ * @since 2.2
+ */
+
+.blanky-about .card {
+	max-width: 48rem;
+}
+
+.blanky-about__lead {
+	max-width: 48rem;
+}
+
+.blanky-about__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+/* The admin resets list markers, so bring them back for the theme names. */
+.blanky-about__list {
+	padding-left: 1.5em;
+	list-style: disc;
+}

@@ -1,10 +1,11 @@
 === Blanky ===
-Contributors: miroku
+Theme URI: https://369theme.com/themes/blanky
+Contributors: 369work
 Tags: block-patterns, custom-logo, editor-style, full-site-editing, style-variations, translation-ready, blog, one-column, e-commerce
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1
+Stable tag: 2.2
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -49,7 +50,22 @@ Blanky uses the WordPress standard numeric spacing slugs:
 | 70   | 4rem      |
 | 80   | clamp(4–6rem) |
 
+== Supports ==
+
+Free support is provided on the WordPress.org support forum: https://wordpress.org/support/theme/blanky/
+Paid customization is available at https://369theme.com/order
+Paid email support is also available. For details, please contact 369Theme: https://369theme.com/contact?product=blanky
+
 == Changelog ==
+
+= 2.2 =
+* Rebuilt the About Blanky page under Appearance with the core admin styles. It now links to the Site Editor, the theme page, reviews, support (support forum, contact) and the premium themes built on Blanky
+* About Blanky: the page styles are now loaded from a stylesheet on that page only, instead of being embedded in the page
+* About Blanky: the page is now available to users who can edit theme options
+* Theme URI now points to the theme page on 369theme.com
+* readme.txt: Added a support section with the support forum, paid customization and contact links
+* readme.txt: Added the Theme URI
+* readme.txt: Contributors now lists the WordPress.org username (369work)
 
 = 2.1 =
 * Compatible with WordPress 7.1
